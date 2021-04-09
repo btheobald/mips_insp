@@ -1,0 +1,7 @@
+common.sv
+core.sv
+alu.sv
+dec.sv
+pc.sv
+rf.sv
+rom.sv
