@@ -16,10 +16,10 @@ typedef enum logic [1:0] {  // Program Counter Mode Select
 
 // Define Instruction Format
 
-`define W_OPCODE 6
-`define W_RADDR  5
-`define W_IMM    8
-`define W_INST   24
+parameter W_OPCODE = 6;
+parameter W_RADDR  = 5;
+parameter W_IMM    = 8;
+parameter W_INST   = 24;
 
 // Opcode Format  
 // 5 4 3 2 1 0
@@ -27,7 +27,7 @@ typedef enum logic [1:0] {  // Program Counter Mode Select
 // S = Special
 // I = Immediate
 // C = Conditional
-typedef enum logic [`W_OPCODE-1:0] {  // Decoder Operation Code
+typedef enum logic [W_OPCODE-1:0] {  // Decoder Operation Code
     O_ADD  = 6'h01,    // rd = AR, rs = B 
     O_SUB  = 6'h02,    
     O_MUL  = 6'h03,    
@@ -49,14 +49,14 @@ typedef enum logic [`W_OPCODE-1:0] {  // Decoder Operation Code
 
 // ALU Functions
 typedef enum logic [2:0] {
-    F_A   = 4'h0,
-    F_ADD = 4'h1,
-    F_SUB = 4'h2,
-    F_MUL = 4'h3,
-    F_AND = 4'h4,
-    F_OR  = 4'h5,
-    F_XOR = 4'h6,
-    F_NOT = 4'h7
+    F_A   = 3'h0,
+    F_ADD = 3'h1,
+    F_SUB = 3'h2,
+    F_MUL = 3'h3,
+    F_AND = 3'h4,
+    F_OR  = 3'h5,
+    F_XOR = 3'h6,
+    F_NOT = 3'h7
 } funcALU;
 
 // ALU Flags

@@ -11,7 +11,7 @@ module dec import pico::*;
         mode_pc_o = INCREMENT;
         wr_en_rf_o = 1'b0;
         a_imm_alu_o = 1'b0;
-        func_alu_o = op_code_i[3] ? F_SUB : op_code_i[2:0];
+        func_alu_o = funcALU'(op_code_i[3] ? F_SUB : op_code_i[2:0]);
         halt_core_o = 1'b0;
         a_imm_alu_o = op_code_i[4]; // Check for Immediate bit
 
