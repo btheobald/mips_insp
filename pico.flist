@@ -1,5 +1,7 @@
 common.sv
 core.sv
+edge_detect.sv
+ovf.sv
 alu.sv
 dec.sv
 pc.sv

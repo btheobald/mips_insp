@@ -10,22 +10,15 @@ module alu import pico::*;
     logic signed [N:0] r_as;
     always_comb begin
         sub = (op == F_SUB);
-		  //tmp = sub ? - b_i : b_i;
-        //r_as = a_i + tmp;
-		  //r_as = sub ? (a_i - b_i) : (a_i + b_i);
         // Altera Cookbook Example 'XOR in front of Carry Chain'
         tmp = {1'b0, a_i, sub} + {sub, {N{sub}} ^ b_i, sub};
         r_as = tmp[N+1:1];
     end
 
+    // Partition overflow and carry logic
+    ovf ov0 (.a(a_i[7]), .b(b_i[7]), .r(r_o[7]), .s(sub), .c(flags_o.Carry), .v(flags_o.Overflow));
+
     always_comb begin
-        if(sub) begin
-            flags_o.Carry = (a_i[7] & ~b_i[7]) | (a_i[7] & r_as[7]) | (~b_i[7] & r_as[7]);
-            flags_o.Overflow = (~a_i[7] & b_i[7] & ~r_as[7]) | (a_i[7] & ~b_i[7] & r_as[7]);
-        end else begin // add
-            flags_o.Carry = (a_i[7] & b_i[7]) | (a_i[7] & ~r_as[7]) | (b_i[7] & ~r_as[7]);
-            flags_o.Overflow = (a_i[7] & b_i[7] & ~r_as[7]) | (~a_i[7] & ~b_i[7] & r_as[7]);
-        end
         flags_o.Zero = ~|r_as;
         flags_o.Negative = r_as[N-1];
     end

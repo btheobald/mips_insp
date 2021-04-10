@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     top->ext_int_i = 0; 
 
     int idx = 0;
-    int8_t vals[10] = {3, 2, 7, 9, 10, 32, -2, 3, 5, 6};
+    int8_t vals[11] = {0, 127, 5, -10, -120, 25, 32, -2, 3, 5, 6};
 
     while(!Verilated::gotFinish() && main_time < 2000 && (top->halt_o == 0)) {
         if(main_time > 10) {
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
             top->ext_int_i ^= 1;
         }
         if((main_time % 20) == 0) {
-            top->ext_data_i = vals[idx];
+            top->ext_data_i = vals[idx%11];
             idx++;
         }
         top->eval();

@@ -18,19 +18,12 @@ module alu (
 	always @(*) begin
 		sub = op == pico_F_SUB;
 		r_as = (sub ? a_i - b_i : a_i + b_i);
-	end
-	always @(*) begin
-		if (sub) begin
-			flags_o[0] = ((a_i[7] & ~b_i[7]) | (a_i[7] & r_as[7])) | (~b_i[7] & r_as[7]);
-			flags_o[1] = ((~a_i[7] & b_i[7]) & ~r_as[7]) | ((a_i[7] & ~b_i[7]) & r_as[7]);
-		end
-		else begin
-			flags_o[0] = ((a_i[7] & b_i[7]) | (a_i[7] & ~r_as[7])) | (b_i[7] & ~r_as[7]);
-			flags_o[1] = ((a_i[7] & b_i[7]) & ~r_as[7]) | ((~a_i[7] & ~b_i[7]) & r_as[7]);
-		end
 		flags_o[3] = ~|r_as;
 		flags_o[2] = r_as[7];
 	end
+
+    ovf ov0 (a_i[7], b_i[7], r_as[7], sub, flags_o[1], flags_o[0]);
+
 	localparam [2:0] pico_F_A = 3'h0;
 	localparam [2:0] pico_F_ADD = 3'h1;
 	localparam [2:0] pico_F_AND = 3'h4;

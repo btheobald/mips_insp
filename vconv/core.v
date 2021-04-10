@@ -66,6 +66,7 @@ module core (
 		.addr_o(addr_pc)
 	);
 	rom rom0(
+        .clk_i(clk_i),
 		.addr_i(addr_pc),
 		.data_o(instruction)
 	);

@@ -1,0 +1,467 @@
+{
+  "creator": "Yosys 0.9+4052 (git sha1 a58571d0, clang  -fPIC -Os)",
+  "modules": {
+    "rf": {
+      "attributes": {
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "rf.v:1.1-32.10"
+      },
+      "ports": {
+        "clk_i": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "wr_en_i": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ext_data_i": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+        },
+        "wd_data_i": {
+          "direction": "input",
+          "signed": 1,
+          "bits": [ 12, 13, 14, 15, 16, 17, 18, 19 ]
+        },
+        "rs_addr_i": {
+          "direction": "input",
+          "bits": [ 20, 21, 22, 23, 24 ]
+        },
+        "rd_addr_i": {
+          "direction": "input",
+          "bits": [ 25, 26, 27, 28, 29 ]
+        },
+        "rs_data_o": {
+          "direction": "output",
+          "signed": 1,
+          "bits": [ 30, 31, 32, 33, 34, 35, 36, 37 ]
+        },
+        "rd_data_o": {
+          "direction": "output",
+          "signed": 1,
+          "bits": [ 38, 39, 40, 41, 42, 43, 44, 45 ]
+        }
+      },
+      "cells": {
+        "$and$rf.v:25$12": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "rf.v:25.8-25.34"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 46 ],
+            "Y": [ 47 ]
+          }
+        },
+        "$and$rf.v:25$14": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "rf.v:25.7-25.55"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 47 ],
+            "B": [ 48 ],
+            "Y": [ 49 ]
+          }
+        },
+        "$auto$proc_memwr.cc:37:proc_memwr$36": {
+          "hide_name": 1,
+          "type": "$memwr",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\regs",
+            "PRIORITY": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "rf.v:23.3-23.18"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ "1", "1", "1", "1", "1", "1", "1", "1" ]
+          }
+        },
+        "$auto$proc_memwr.cc:37:proc_memwr$37": {
+          "hide_name": 1,
+          "type": "$memwr",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\regs",
+            "PRIORITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "rf.v:24.3-24.25"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "1", "1", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ 4, 5, 6, 7, 8, 9, 10, 11 ],
+            "EN": [ "1", "1", "1", "1", "1", "1", "1", "1" ]
+          }
+        },
+        "$auto$proc_memwr.cc:37:proc_memwr$38": {
+          "hide_name": 1,
+          "type": "$memwr",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000101",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\regs",
+            "PRIORITY": "00000000000000000000000000000010",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "rf.v:26.4-26.32"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 50, 51, 52, 53, 54 ],
+            "CLK": [ 2 ],
+            "DATA": [ 55, 56, 57, 58, 59, 60, 61, 62 ],
+            "EN": [ 63, 63, 63, 63, 63, 63, 63, 63 ]
+          }
+        },
+        "$memrd$\\regs$rf.v:29$19": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000101",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\regs",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "rf.v:29.15-29.19"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 20, 21, 22, 23, 24 ],
+            "CLK": [ "x" ],
+            "DATA": [ 30, 31, 32, 33, 34, 35, 36, 37 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$memrd$\\regs$rf.v:30$20": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000101",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\regs",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "rf.v:30.15-30.19"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 25, 26, 27, 28, 29 ],
+            "CLK": [ "x" ],
+            "DATA": [ 38, 39, 40, 41, 42, 43, 44, 45 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$ne$rf.v:25$11": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "rf.v:25.19-25.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 25, 26, 27, 28, 29 ],
+            "Y": [ 46 ]
+          }
+        },
+        "$ne$rf.v:25$13": {
+          "hide_name": 1,
+          "type": "$ne",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "rf.v:25.39-25.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 25, 26, 27, 28, 29 ],
+            "B": [ "0", "1", "1", "1", "1" ],
+            "Y": [ 48 ]
+          }
+        },
+        "$procmux$22": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "rf.v:25.7-25.55|rf.v:25.3-26.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 49 ],
+            "Y": [ 63 ]
+          }
+        },
+        "$procmux$25": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "rf.v:25.7-25.55|rf.v:25.3-26.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 12, 13, 14, 15, 16, 17, 18, 19 ],
+            "S": [ 49 ],
+            "Y": [ 55, 56, 57, 58, 59, 60, 61, 62 ]
+          }
+        },
+        "$procmux$28": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "rf.v:25.7-25.55|rf.v:25.3-26.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x" ],
+            "B": [ 25, 26, 27, 28, 29 ],
+            "S": [ 49 ],
+            "Y": [ 50, 51, 52, 53, 54 ]
+          }
+        }
+      },
+      "memories": {
+        "regs": {
+          "hide_name": 0,
+          "attributes": {
+            "src": "rf.v:21.19-21.23"
+          },
+          "width": 8,
+          "start_offset": 0,
+          "size": 32
+        }
+      },
+      "netnames": {
+        "$0$memwr$\\regs$rf.v:26$3_ADDR[4:0]$8": {
+          "hide_name": 1,
+          "bits": [ 50, 51, 52, 53, 54 ],
+          "attributes": {
+            "src": "rf.v:22.2-27.5"
+          }
+        },
+        "$0$memwr$\\regs$rf.v:26$3_DATA[7:0]$9": {
+          "hide_name": 1,
+          "bits": [ 55, 56, 57, 58, 59, 60, 61, 62 ],
+          "attributes": {
+            "src": "rf.v:22.2-27.5"
+          }
+        },
+        "$0$memwr$\\regs$rf.v:26$3_EN[7:0]$10": {
+          "hide_name": 1,
+          "bits": [ 63, 63, 63, 63, 63, 63, 63, 63 ],
+          "attributes": {
+            "src": "rf.v:22.2-27.5"
+          }
+        },
+        "$and$rf.v:25$12_Y": {
+          "hide_name": 1,
+          "bits": [ 47 ],
+          "attributes": {
+            "src": "rf.v:25.8-25.34"
+          }
+        },
+        "$and$rf.v:25$14_Y": {
+          "hide_name": 1,
+          "bits": [ 49 ],
+          "attributes": {
+            "src": "rf.v:25.7-25.55"
+          }
+        },
+        "$ne$rf.v:25$11_Y": {
+          "hide_name": 1,
+          "bits": [ 46 ],
+          "attributes": {
+            "src": "rf.v:25.19-25.33"
+          }
+        },
+        "$ne$rf.v:25$13_Y": {
+          "hide_name": 1,
+          "bits": [ 48 ],
+          "attributes": {
+            "src": "rf.v:25.39-25.54"
+          }
+        },
+        "clk_i": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "rf.v:11.13-11.18"
+          }
+        },
+        "ext_data_i": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7, 8, 9, 10, 11 ],
+          "attributes": {
+            "src": "rf.v:14.19-14.29"
+          }
+        },
+        "rd_addr_i": {
+          "hide_name": 0,
+          "bits": [ 25, 26, 27, 28, 29 ],
+          "attributes": {
+            "src": "rf.v:18.19-18.28"
+          }
+        },
+        "rd_data_o": {
+          "hide_name": 0,
+          "bits": [ 38, 39, 40, 41, 42, 43, 44, 45 ],
+          "signed": 1,
+          "attributes": {
+            "src": "rf.v:20.26-20.35"
+          }
+        },
+        "rs_addr_i": {
+          "hide_name": 0,
+          "bits": [ 20, 21, 22, 23, 24 ],
+          "attributes": {
+            "src": "rf.v:17.19-17.28"
+          }
+        },
+        "rs_data_o": {
+          "hide_name": 0,
+          "bits": [ 30, 31, 32, 33, 34, 35, 36, 37 ],
+          "signed": 1,
+          "attributes": {
+            "src": "rf.v:19.26-19.35"
+          }
+        },
+        "wd_data_i": {
+          "hide_name": 0,
+          "bits": [ 12, 13, 14, 15, 16, 17, 18, 19 ],
+          "signed": 1,
+          "attributes": {
+            "src": "rf.v:15.26-15.35"
+          }
+        },
+        "wr_en_i": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "rf.v:12.13-12.20"
+          }
+        }
+      }
+    }
+  }
+}

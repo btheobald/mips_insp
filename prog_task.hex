@@ -8,6 +8,6 @@ c00001 //           jsbr load_ext
 44c400 //           addi r6, r4, 0
 c00001 //           jsbr load_ext
 44a400 //           addi r5, r4, 0
-04c500 //           add r6, r5
+0cc500 //           mul r6, r5
 050600 //           add r8, r6
 c00005 //           jsbr start
