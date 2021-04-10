@@ -19,14 +19,25 @@ int main(int argc, char** argv) {
     tfp->open("test.vcd");
 
     top->n_rst_i = 0;
-    top->ext_data_i = 0;    
+    top->ext_data_i = 0;   
+    top->ext_int_i = 0; 
 
-    while(!Verilated::gotFinish() && main_time < 1000 && (top->halt_o == 0)) {
+    int idx = 0;
+    int8_t vals[10] = {3, 2, 7, 9, 10, 32, -2, 3, 5, 6};
+
+    while(!Verilated::gotFinish() && main_time < 2000 && (top->halt_o == 0)) {
         if(main_time > 10) {
             top->n_rst_i = 1;
         }
-        if((main_time % 10) == 0) {
+        if((main_time % 1) == 0) {
             top->clk_i ^= 1;
+        }
+        if((main_time % 10) == 0) {
+            top->ext_int_i ^= 1;
+        }
+        if((main_time % 20) == 0) {
+            top->ext_data_i = vals[idx];
+            idx++;
         }
         top->eval();
         //std::cout << main_time << " " << top->result_o << std::endl;

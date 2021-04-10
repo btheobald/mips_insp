@@ -8,10 +8,10 @@ parameter N = 8;  // Data Bus Width
 parameter R = 32; // Register File Size
 
 typedef enum logic [1:0] {  // Program Counter Mode Select
-    HALTCOUNT = 2'h0,      // Halt the processor at current memory address
-    INCREMENT = 2'h1,      // Increment program memory address
-    RELATIVE  = 2'h2,       // Add immediate value to PC (TODO: Consider using ALU and doing comparison ops differently)
-    ABSOLUTE  = 2'h3        // Load immediate value into PC (TODO: Currently only supports first 8lsb, add j-type format)
+    INCREMENT  = 2'h1,      // Increment program memory address
+    RELATIVE   = 2'h2,      // Add immediate value to PC (TODO: Consider using ALU and doing comparison ops differently)
+    SUBROUTINE = 2'h3,      // Jump to subroutine specified (Within tob 8b for timebeing)
+    RETURN     = 2'h0       // Return to subroutine call + 1
 } modePC;
 
 // Define Instruction Format
@@ -28,6 +28,7 @@ parameter W_INST   = 24;
 // I = Immediate
 // C = Conditional
 typedef enum logic [W_OPCODE-1:0] {  // Decoder Operation Code
+    O_HALT = 6'h00,    // Fully halts CPU execution
     O_ADD  = 6'h01,    // rd = AR, rs = B 
     O_SUB  = 6'h02,    
     O_MUL  = 6'h03,    
@@ -44,7 +45,9 @@ typedef enum logic [W_OPCODE-1:0] {  // Decoder Operation Code
     O_ORI  = 6'h15,
     O_XORI = 6'h16,
     O_NOTI = 6'h17,
-    O_HALT = 6'h00    // Fully halts CPU execution
+    O_JSBR = 6'h30, // Jump to Subroutine
+    O_RSBR = 6'h31, // Subroutine return
+    O_WFI  = 6'h3f  // Wait for Interrupt
 } opCode;
 
 // ALU Functions
@@ -96,12 +99,19 @@ endpackage
 	bne => 0b001001
 }
 
+#subruledef ops
+{
+	jsbr => 0x30
+	rsbr => 0x31
+}
+
 #ruledef
 {
-    nop => 0x000000
-	halt => 0xffffff
+    nop => 0x040000
+	halt => 0x000000
 	{o:op} r{rd_num}, r{rs_num} => o`6 @ rd_num`5 @ rs_num`5 @ 0x00
 	{o:opi} r{rd_num}, r{rs_num}, {imm: s8} => o`6 @ rd_num`5 @ rs_num`5 @ imm`8
+	{o:ops} {imm: s8} => o`6 @ 0b0000000000 @ imm`8
 }
 
 nop
