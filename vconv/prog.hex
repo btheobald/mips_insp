@@ -1,13 +1,14 @@
-c00005 // jsbr start
+c00004 // jsbr start
 fc0000 // load_ext: wfi 
 449e00 //           addi r4, r30, 0
-fc0000 //           wfi
 c40000 //           rsbr
 450000 // start:    addi r8, r0, 0
 c00001 //           jsbr load_ext
 44c400 //           addi r6, r4, 0
+fc0000 //           wfi
 c00001 //           jsbr load_ext
 44a400 //           addi r5, r4, 0
+fc0000 //           wfi
 0cc500 //           mul r6, r5
 050600 //           add r8, r6
-c00005 //           jsbr start
+c00004 //           jsbr start

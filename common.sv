@@ -73,8 +73,9 @@ typedef struct packed {
 endpackage
 
 // Use https://hlorenzi.github.io/customasm/web/ as an assembler
-// Columns padded to 32-bits
 /*
+#bits 24
+
 #subruledef op
 {
 	add => 0b000001
@@ -99,29 +100,33 @@ endpackage
 	bne => 0b001001
 }
 
-#subruledef ops
-{
-	jsbr => 0x30
-	rsbr => 0x31
-}
-
 #ruledef
 {
     nop => 0x040000
 	halt => 0x000000
+	wfi => 0xfc0000
 	{o:op} r{rd_num}, r{rs_num} => o`6 @ rd_num`5 @ rs_num`5 @ 0x00
 	{o:opi} r{rd_num}, r{rs_num}, {imm: s8} => o`6 @ rd_num`5 @ rs_num`5 @ imm`8
-	{o:ops} {imm: s8} => o`6 @ 0b0000000000 @ imm`8
+	jsbr {imm: u8} => 0xc000 @ imm`8
+	rsbr => 0xc40000
 }
 
-nop
-addi r1, r0, 3
-addi r2, r0, 2
-addi r3, r0, 5
-addi r4, r0, 0
-add r1, r2
-mul r2, r1
-addi r4, r4, 1
-bne r4, r3, -3
-halt
+jsbr start
+
+load_ext:
+	wfi
+	addi r4, r30, 0
+    wfi
+	rsbr
+
+start:
+	addi r8, r0, 0
+	jsbr load_ext
+	addi r6, r4, 0
+	jsbr load_ext
+	addi r5, r4, 0
+	mul r6, r5
+	add r8, r6
+	jsbr start
+	
 */
