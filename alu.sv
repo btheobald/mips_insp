@@ -10,10 +10,12 @@ module alu import pico::*;
     logic signed [N:0] r_as;
     always_comb begin
         sub = (op == F_SUB);
-        r_as = sub ? (a_i - b_i) : (a_i + b_i);
+		  //tmp = sub ? - b_i : b_i;
+        //r_as = a_i + tmp;
+		  //r_as = sub ? (a_i - b_i) : (a_i + b_i);
         // Altera Cookbook Example 'XOR in front of Carry Chain'
-        //tmp = {1'b0, a_i, sub} + {sub, {N{sub}} ^ b_i, sub};
-        //r_as = tmp[N+1:1];
+        tmp = {1'b0, a_i, sub} + {sub, {N{sub}} ^ b_i, sub};
+        r_as = tmp[N+1:1];
     end
 
     always_comb begin
