@@ -3,7 +3,7 @@
 
 package pico;
 
-parameter A = 10; // Memory Address Width
+parameter A = 4; // Memory Address Width
 parameter N = 8;  // Data Bus Width
 parameter R = 32; // Register File Size
 
@@ -47,7 +47,7 @@ typedef enum logic [W_OPCODE-1:0] {  // Decoder Operation Code
     O_NOTI = 6'h17,
     O_JSBR = 6'h30, // Jump to Subroutine
     O_RSBR = 6'h31, // Subroutine return
-    O_WFI  = 6'h3f  // Wait for Interrupt
+    O_WFIV = 6'h20 // Wait for Interrupt and Output RD
 } opCode;
 
 // ALU Functions

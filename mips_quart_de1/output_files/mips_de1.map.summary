@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Sun Apr 11 01:03:37 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : mips_de1
+Top-level Entity Name : picoMIPS4test
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 454
+Total pins : 67
+Total virtual pins : 0
+Total block memory bits : 768
+Total DSP Blocks : 1
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

@@ -11,12 +11,16 @@ module rf import pico::*;
     logic signed [N-1:0] regs [0:R-1];
 
     always_ff @(posedge clk_i) begin : REGISTER
-        regs[0] <= 8'd0;
-        regs[30] <= ext_data_i;
-        if(wr_en_i & rd_addr_i != 0 & rd_addr_i != 30) begin
+        if(wr_en_i) begin
             regs[rd_addr_i] <= wd_data_i;
         end
+		  regs[0] <= 8'b0;
+		  regs[30] <= ext_data_i;
     end
+	 
+	 //wire [7:0] q_a = (address_a == 'd0) ? 'd0 : (address_a == 'd30) ? ext_i : sub_wire0[7:0];
+	 //wire [7:0] q_b = (address_b == 'd0) ? 'd0 : (address_b == 'd30) ? ext_i : sub_wire1[7:0];
+
 
     always_comb begin : OUTPUT       
         rs_data_o = regs[rs_addr_i];

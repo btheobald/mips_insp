@@ -47,7 +47,7 @@ module dec import pico::*;
             O_RSBR: begin
                 mode_pc_o = RETURN;
             end
-            O_WFI: begin
+            O_WFIV: begin
                 mode_pc_o = INCREMENT;
                 wfi_core_o = ~ext_int_i;
             end
