@@ -73,8 +73,7 @@ typedef struct packed {
 endpackage
 
 // Use https://hlorenzi.github.io/customasm/web/ as an assembler
-/*
-#bits 24
+/*#bits 24
 
 #subruledef op
 {
@@ -100,33 +99,33 @@ endpackage
 	bne => 0b001001
 }
 
+#subruledef ops
+{
+	wfiv => 0x20
+}
+
 #ruledef
 {
     nop => 0x040000
 	halt => 0x000000
-	wfi => 0xfc0000
+	{o:ops} r{rd_num} => o`6 @ rd_num`5 @ 0b0000000000000 
 	{o:op} r{rd_num}, r{rs_num} => o`6 @ rd_num`5 @ rs_num`5 @ 0x00
 	{o:opi} r{rd_num}, r{rs_num}, {imm: s8} => o`6 @ rd_num`5 @ rs_num`5 @ imm`8
 	jsbr {imm: u8} => 0xc000 @ imm`8
 	rsbr => 0xc40000
 }
 
-jsbr start
-
-load_ext:
-	wfi
-	addi r4, r30, 0
-    wfi
-	rsbr
-
-start:
-	addi r8, r0, 0
-	jsbr load_ext
-	addi r6, r4, 0
-	jsbr load_ext
-	addi r5, r4, 0
-	mul r6, r5
-	add r8, r6
-	jsbr start
+addi r4, r0, 0  ; Load 0 into R4 for display
+jsbr load_ext   ; Read Value A (Subroutine)
+addi r5, r4, 0  ; Move Value from R4 into R5
+jsbr load_ext   ; Read Value B (Subroutine)
+mul r5, r4      ; Multiply R5 by R4
+wfiv r5	        ; Wait for interrupt and view R5
+wfiv r5	        ; Wait for interrupt and view R5
+beq r0, r0, -7  ; Branch outside program and halt
+load_ext: wfiv r4	; Wait for interrupt and view R4	
+		  addi r4, r30, 0 ; Move Value from R30 into R4
+   		  wfiv r4   ; Wait for interruot and view R4
+       	  rsbr 		; Return to subroutine call
 	
 */
