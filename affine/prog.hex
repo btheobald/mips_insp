@@ -1,0 +1,14 @@
+44200a // addi r1, r0, 10
+c0000a // jsbr load_ext
+44200b // addi r1, r0, 11
+44c400 // addi r6, r4, 0
+c0000a // jsbr load_ext
+44a400 // addi r5, r4, 0
+0cc500 // mul r6, r5
+450600 // addi r8, r6, 0
+810000 // wfiv r8
+2000f7 // beq r0, r0, -9   
+802000 // load_ext: wfiv r1
+449e00 //           addi r4, r30, 0
+808000 //           wfiv r4
+c40000 //           rsbr
