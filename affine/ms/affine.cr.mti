@@ -1,0 +1,49 @@
+//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/pc.sv {1 {vlog -work work -vopt -sv -stats=none //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/pc.sv
+Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+-- Compiling module pc
+-- Importing package affine
+
+Top level modules:
+	pc
+
+} {} {}} //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rf.sv {1 {vlog -work work -vopt -sv -stats=none //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rf.sv
+Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+-- Compiling module rf
+-- Importing package affine
+
+Top level modules:
+	rf
+
+} {} {}} //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ddralu.sv {2 {vlog -work work -vopt -sv -stats=none //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ddralu.sv
+Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+-- Compiling module ddralu
+-- Importing package affine
+** Warning: //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ddralu.sv(11): (vlog-13314) Defaulting port 'ctrl' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+
+Top level modules:
+	ddralu
+
+} {} {}} //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/core.sv {1 {vlog -work work -vopt -sv -stats=none //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/core.sv
+Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+-- Compiling module core
+-- Importing package affine
+
+Top level modules:
+	core
+
+} {} {}} //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/common.sv {1 {vlog -work work -vopt -sv -stats=none //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/common.sv
+Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+-- Compiling package affine
+
+Top level modules:
+	--none--
+
+} {} {}} //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rom.sv {1 {vlog -work work -vopt -sv -stats=none //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rom.sv
+Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+-- Compiling module rom
+-- Importing package affine
+
+Top level modules:
+	rom
+
+} {} {}}

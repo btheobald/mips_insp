@@ -115,17 +115,7 @@ endpackage
 	rsbr => 0xc40000
 }
 
-addi r4, r0, 0  ; Load 0 into R4 for display
-jsbr load_ext   ; Read Value A (Subroutine)
-addi r5, r4, 0  ; Move Value from R4 into R5
-jsbr load_ext   ; Read Value B (Subroutine)
-mul r5, r4      ; Multiply R5 by R4
-wfiv r5	        ; Wait for interrupt and view R5
-wfiv r5	        ; Wait for interrupt and view R5
-beq r0, r0, -7  ; Branch outside program and halt
-load_ext: wfiv r4	; Wait for interrupt and view R4	
-		  addi r4, r30, 0 ; Move Value from R30 into R4
-   		  wfiv r4   ; Wait for interruot and view R4
-       	  rsbr 		; Return to subroutine call
-	
-*/
+addi r1, r4, 0
+mul r2, r1
+addi r8, r2, 0
+addi r2, r1, 0*/

@@ -15,10 +15,10 @@ parameter W_INST = W_OP+W_I2+W_I1+W_RD+W_RS;
 
 // ALU Control
 typedef struct packed {
-    logic wdual;
-    logic [1:0] mul_a_sel;
+    logic frac_c;
+	 logic wdual;	
+	 logic [1:0] mul_a_sel;
     logic [1:0] add_b_sel;
-    logic halt;
 } tOP;
 
 endpackage

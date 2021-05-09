@@ -1,0 +1,210 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Byron/Documents/Workspaces/comp3200_ip/sim/modelsim
+T_opt
+!s110 1620518914
+VDYMDKkz>n>ZzTPT3=^m=R1
+Z1 04 7 4 work core_tb fast 0
+=1-0050569d520d-60972801-3e6-8248
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+Z3 OL;O;2020.1;71
+R0
+T_opt1
+!s110 1620521967
+Vdj?aa6jKORQO;0IPUJVYJ2
+R1
+=6-0050569d520d-609733ed-329-5160
+o-quiet -auto_acc_if_foreign -work work +acc
+R2
+n@_opt1
+R3
+Xaffine
+Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1620520867
+!i10b 1
+!s100 cmIP8aYc9`A]g8Q1zDjOK2
+Z5 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IT9giPV6lBYkng90ROVT6z1
+VT9giPV6lBYkng90ROVT6z1
+S1
+Z6 d//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ms
+w1620515613
+8//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/common.sv
+F//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/common.sv
+!i122 30
+L0 4 0
+Z7 OL;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1620520867.000000
+!s107 //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/common.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/common.sv|
+!i113 0
+Z8 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vcore
+R4
+Z9 DXx4 work 6 affine 0 22 T9giPV6lBYkng90ROVT6z1
+!s110 1620521550
+!i10b 1
+!s100 8DzF53heRcPf?f`k5hXT?0
+R5
+IfB93?GiUdV?LhC:O0nP?<1
+Z10 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R6
+w1620521344
+8//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/core.sv
+F//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/core.sv
+!i122 36
+L0 1 50
+R7
+r1
+!s85 0
+31
+!s108 1620521549.000000
+!s107 //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/core.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/core.sv|
+!i113 0
+R8
+R2
+vcore_tb
+R4
+!s110 1620521964
+!i10b 1
+!s100 JgZgbk1BZ7EjzCDISKc@I3
+R5
+I6oQKbi[D]ZZWb[Y[bWO1N3
+R10
+S1
+R6
+w1620521949
+8\\filestore.soton.ac.uk\users\bt4g16\mydocuments\affine\ms\core_tb.sv
+F\\filestore.soton.ac.uk\users\bt4g16\mydocuments\affine\ms\core_tb.sv
+!i122 38
+L0 3 36
+R7
+r1
+!s85 0
+31
+!s108 1620521963.000000
+!s107 \\filestore.soton.ac.uk\users\bt4g16\mydocuments\affine\ms\core_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|\\filestore.soton.ac.uk\users\bt4g16\mydocuments\affine\ms\core_tb.sv|
+!i113 0
+R8
+R2
+vddralu
+R4
+R9
+Z11 !s110 1620520868
+!i10b 1
+!s100 LjM[8TmUOLUT7WkKLaQ5:0
+R5
+IX=PR8Czi7P3Q7GFjR?TPY2
+R10
+S1
+R6
+w1620517992
+8//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ddralu.sv
+F//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ddralu.sv
+!i122 32
+L0 1 78
+R7
+r1
+!s85 0
+31
+Z12 !s108 1620520868.000000
+!s107 //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ddralu.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/ddralu.sv|
+!i113 0
+R8
+R2
+vpc
+R4
+R9
+R11
+!i10b 1
+!s100 fNaDmz@QMT^S[lT3Tzehj2
+R5
+I8gF7UZX28TIZ[I77R]8c11
+R10
+S1
+R6
+w1620508613
+8//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/pc.sv
+F//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/pc.sv
+!i122 33
+L0 1 14
+R7
+r1
+!s85 0
+31
+R12
+!s107 //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/pc.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/pc.sv|
+!i113 0
+R8
+R2
+vrf
+R4
+R9
+Z13 !s110 1620520869
+!i10b 1
+!s100 720>KFBRoZgnAcLncM_P50
+R5
+I;TElj:>hNG3[@9Ko[?D9A1
+R10
+S1
+R6
+w1620516388
+8//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rf.sv
+F//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rf.sv
+!i122 34
+L0 1 57
+R7
+r1
+!s85 0
+31
+R12
+!s107 //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rf.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rf.sv|
+!i113 0
+R8
+R2
+vrom
+R4
+R9
+R13
+!i10b 1
+!s100 dId?[Po2IY2>hndCfPVca3
+R5
+I<zhY5FWbD8h9fd8D4OzLk1
+R10
+S1
+R6
+w1620519319
+8//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rom.sv
+F//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rom.sv
+!i122 35
+L0 1 17
+R7
+r1
+!s85 0
+31
+!s108 1620520869.000000
+!s107 //filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rom.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|//filestore.soton.ac.uk/users/bt4g16/mydocuments/affine/rom.sv|
+!i113 0
+R8
+R2

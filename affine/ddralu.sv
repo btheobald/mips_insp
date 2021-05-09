@@ -5,75 +5,62 @@ module ddralu import affine::*;
     input  logic [N-1:0] d,
     input  logic [N-1:0] acc1_i,
     input  logic [N-1:0] acc2_i,
-    output logic [N-1:0] r,
-    
-    // Control
-    input tOP ctrl,
-    
-    // Clock used for reference
-    input logic clock_pol
-);
+    output logic [N-1:0] r1,
+	 output logic [N-1:0] r2,
 
-    logic signed [7:0] mul1_a, mul1_b, mul1_r;
+    // Control
+    input tOP ctrl);
+
+    logic signed [7:0] mul1_a, mul1_b, mul1_rs;
+    logic signed [15:0] mul1_r;
     always_comb begin : MUL1_SEL
-        if(ctrl.mul_a_sel[0] == 0)
-            mul1_a = a;
-        if(ctrl.mul_a_sel[0] == 1)
-            mul1_a = 0;
-        if(ctrl.mul_a_sel[1] == 1)
-            mul1_a = 1;
+        casex(ctrl.mul_a_sel)
+           2'b00 : mul1_a = a;
+			  2'b01 : mul1_a = 0;
+           2'b1x : mul1_a = 1;
+		  endcase
         mul1_b = c;
     end : MUL1_SEL
 
-    logic signed [7:0] mul2_a, mul2_b, mul2_r;
+    logic signed [7:0] mul2_a, mul2_b, mul2_rs;
+    logic signed [15:0] mul2_r;
     always_comb begin : MUL2_SEL
-        if(ctrl.mul_a_sel[0] == 0)
-            mul2_b = b;
-        if(ctrl.mul_a_sel[0] == 1)
-            mul2_b = 0;
-        if(ctrl.mul_a_sel[1] == 1)
-            mul2_b = 1;
+        casex(ctrl.mul_a_sel)
+           2'b00 : mul2_a = b;
+			  2'b01 : mul2_a = 0;
+           2'b1x : mul2_a = 1;
+		  endcase
         mul2_b = d;
     end : MUL2_SEL
 
     always_comb begin : MUL
         mul1_r = mul1_a * mul1_b;
         mul2_r = mul2_a * mul2_b;
+        mul1_rs = ctrl.frac_c ? mul1_r[14:7] : mul1_r[7:0];
+        mul2_rs = ctrl.frac_c ? mul2_r[14:7] : mul2_r[7:0];
     end : MUL
 
+    logic signed [7:0] add1_a, add1_b;
     always_comb begin : ADD1_SEL
-        add1_a = mul1_r;
-        if(ctrl.add_b_sel[0] == 0)
-            add1_b = acc1_i; // Accumulator Mode
-        if(ctrl.add_b_sel[0] == 1)
-            add1_b = 0;      // Multiplier Mode
-        if(ctrl.add_b_sel[1] == 1)
-            add1_b = mul2_r; // Adder Mode
+        add1_a = mul1_rs;
+		  casex(ctrl.add_b_sel)
+           2'b00 : add1_b = acc1_i; // Accumulator Mode
+			  2'b01 : add1_b = 0;      // Multiplier Mode
+           2'b1x : add1_b = mul2_rs; // Adder Mode
+		  endcase
     end : ADD1_SEL
 
+    logic signed [7:0] add2_a, add2_b;
     always_comb begin : ADD2_SEL
-        add2_a = mul2_r;
-        if(ctrl.add_b_sel[0] == 0)
-            add2_b = acc2_i; // Accumulator Mode
-        if(ctrl.add_b_sel[0] == 1)
-            add2_b = 0;      // Multiplier Mode
-        if(ctrl.add_b_sel[1] == 1)
-            add2_b = mul1_r; // Adder Mode
+        add2_a = mul2_rs;
+        casex(ctrl.add_b_sel)
+           2'b00 : add2_b = acc2_i; // Accumulator Mode
+			  2'b01 : add2_b = 0;      // Multiplier Mode
+           2'b1x : add2_b = mul1_rs; // Adder Mode
+		  endcase
     end : ADD2_SEL
 
-    logic signed [7:0] add1_a, add1_b;
-    logic signed [7:0] add2_a, add2_b;
-    logic signed [7:0] add_a, add_b;
-    always_comb begin : ADD
-        if(clock_pol) begin
-            add_a = add1_a;
-            add_b = add1_b;
-        end else begin
-            add_a = add2_a;
-            add_b = add2_b;
-        end
-    end : ADD
-    
-    assign r = add_a + add_b;
+    assign r1 = add1_a + add1_b;
+	 assign r2 = add2_a + add2_b;
 
 endmodule

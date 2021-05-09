@@ -35,11 +35,11 @@ module core import pico::*;
     assign rd_addr   = instruction[W_IMM+W_RADDR   +: W_RADDR];
     assign op_code   = opCode'(instruction[W_IMM+2*W_RADDR +: W_OPCODE]);   
 	 
-    logic signed [N-1:0] rs_data, rd_data;
+    logic signed [N-1:0] rs_data, rd_data, alu_wb;
 	 
     pc  pc0  (.clk_i(clk_i), .halt_i(halt_o||wfi_core), .n_rst_i(n_rst_i), .mode_i(mode_pc), .data_i(immediate), .addr_o(prog_addr));
-    rf  rf0  (.clk_i(clk_i), .wr_en_i(wr_en_rf), .ext_data_i(ext_data_i), .wd_data_i(result_o), .rs_addr_i(rs_addr), .rd_addr_i(rd_addr), .rs_data_o(rs_data), .rd_data_o(rd_data));
-	 alu alu0 (.a_i(a_imm_alu ? immediate : rd_data), .b_i(rs_data), .op(func_alu), .r_o(result_o), .flags_o(flags_alu));
+    rf  rf0  (.clk_i(clk_i), .wr_en_i(wr_en_rf), .ext_data_i(ext_data_i), .ext_data_o(result_o), .wd_data_i(alu_wb), .rs_addr_i(rs_addr), .rd_addr_i(rd_addr), .rs_data_o(rs_data), .rd_data_o(rd_data));
+	 alu alu0 (.a_i(a_imm_alu ? immediate : rd_data), .b_i(rs_data), .op(func_alu), .r_o(alu_wb), .flags_o(flags_alu));
 
     always_ff @(posedge clk_i) begin      
         $display("%x, %x, %x", prog_addr, instruction, result_o);
