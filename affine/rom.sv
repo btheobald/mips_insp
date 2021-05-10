@@ -5,10 +5,15 @@ module rom import affine::*;
 	 
     reg [W_INST-1:0] rom [0:(1<<A)-1]; 
    
-    assign rom[0] = 28'h64014EC; // dseti (b1), (b2)		  - Dual Set Immediate
-    assign rom[1] = 28'hC004060; // dfmac r0, (a21), (a22) - Dual Fractional Multiply Accumulate
-    assign rom[2] = 28'hC0960C0; // dfmac r1, (a11), (a21) - Dual Fractional Multiply Accumulate
-    assign rom[3] = 28'h0480100; // addi  r1, r0, (0)		  - Add Immediate
+    // Dataset 1
+    assign rom[0] = 28'h14014EC; // dseti (b1), (b2)		  - Dual Set Immediate
+    assign rom[1] = 28'h3904060; // dfmac r0, (a21), (a22) - Dual Fractional Multiply Accumulate
+    assign rom[2] = 28'h39560C0; // dfmac r1, (a11), (a21) - Dual Fractional Multiply Accumulate
+    // Dataset 2
+    //assign rom[0] = 28'h640050C; // dseti (b1), (b2)		  - Dual Set Immediate
+    //assign rom[1] = 28'hC009060; // dfmac r0, (a21), (a22) - Dual Fractional Multiply Accumulate
+    //assign rom[2] = 28'hC094090; // dfmac r1, (a11), (a21) - Dual Fractional Multiply Accumulate
+    assign rom[3] = 28'h0840100; // set r1, r0		  - Set Register
     
     assign data_o = rom[addr_i];
   

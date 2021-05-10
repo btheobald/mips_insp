@@ -1,4 +1,4 @@
-module ddralu import affine::*;
+module dalu import affine::*;
    (input  logic [N-1:0] a,
     input  logic [N-1:0] b,
     input  logic [N-1:0] c,
@@ -15,20 +15,20 @@ module ddralu import affine::*;
     logic signed [15:0] mul1_r;
     always_comb begin : MUL1_SEL
         casex(ctrl.mul_a_sel)
-           2'b00 : mul1_a = a;
-			  2'b01 : mul1_a = 0;
-           2'b1x : mul1_a = 1;
-		  endcase
-        mul1_b = c;
+		   2'b00 : mul1_a = 0;
+           2'b01 : mul1_a = 1;
+           2'b1x : mul1_a = a;
+		endcase
+        mul1_b = (ctrl.mul_a_sel == 2'b11) ? b : c;
     end : MUL1_SEL
 
     logic signed [7:0] mul2_a, mul2_b, mul2_rs;
     logic signed [15:0] mul2_r;
     always_comb begin : MUL2_SEL
         casex(ctrl.mul_a_sel)
-           2'b00 : mul2_a = b;
-			  2'b01 : mul2_a = 0;
-           2'b1x : mul2_a = 1;
+           2'b00 : mul2_a = 0;
+		   2'b01 : mul2_a = 1;
+           2'b1x : mul2_a = b;
 		  endcase
         mul2_b = d;
     end : MUL2_SEL
@@ -44,23 +44,22 @@ module ddralu import affine::*;
     always_comb begin : ADD1_SEL
         add1_a = mul1_rs;
 		  casex(ctrl.add_b_sel)
-           2'b00 : add1_b = acc1_i; // Accumulator Mode
-			  2'b01 : add1_b = 0;      // Multiplier Mode
+           2'b00 : add1_b = 0;       // Multiplier Mode
+		   2'b01 : add1_b = acc1_i;  // Accumulator Mode
            2'b1x : add1_b = mul2_rs; // Adder Mode
 		  endcase
     end : ADD1_SEL
 
     logic signed [7:0] add2_a, add2_b;
-    always_comb begin : ADD2_SEL
+    always_comb begin : ADD2_SEL 
         add2_a = mul2_rs;
         casex(ctrl.add_b_sel)
-           2'b00 : add2_b = acc2_i; // Accumulator Mode
-			  2'b01 : add2_b = 0;      // Multiplier Mode
-           2'b1x : add2_b = mul1_rs; // Adder Mode
+           2'bx0 : add2_b = 0;       // Multiplier Mode
+		   2'bx1 : add2_b = acc2_i;  // Accumulator Mode
 		  endcase
     end : ADD2_SEL
 
     assign r1 = add1_a + add1_b;
-	 assign r2 = add2_a + add2_b;
+	assign r2 = add2_a + add2_b;
 
 endmodule
