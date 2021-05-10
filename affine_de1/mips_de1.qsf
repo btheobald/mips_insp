@@ -676,17 +676,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
-set_global_assignment -name HEX_FILE ../affine/prog.hex
-set_global_assignment -name SYSTEMVERILOG_FILE ../affine/rom.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ../affine/rf.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ../affine/pc.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ../affine/ddralu.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ../affine/core.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ../affine/common.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sseg.v
-set_global_assignment -name SYSTEMVERILOG_FILE counter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE DE1_SOC_golden_top.v
-set_global_assignment -name MIF_FILE ../affine/prog_test.mif
 set_global_assignment -name DSP_BLOCK_BALANCING "SIMPLE MULTIPLIERS"
 set_global_assignment -name AUTO_DSP_RECOGNITION ON
 set_global_assignment -name SYNTH_GATED_CLOCK_CONVERSION ON
@@ -699,4 +688,14 @@ set_global_assignment -name FITTER_AGGRESSIVE_ROUTABILITY_OPTIMIZATION ALWAYS
 set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION OFF
 set_global_assignment -name OPTIMIZE_FOR_METASTABILITY OFF
 set_global_assignment -name ADVANCED_PHYSICAL_OPTIMIZATION OFF
+set_global_assignment -name SYSTEMVERILOG_FILE ../affine/dalu.sv
+set_global_assignment -name HEX_FILE ../affine/prog.hex
+set_global_assignment -name SYSTEMVERILOG_FILE ../affine/rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../affine/rf.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../affine/pc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../affine/core.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../affine/common.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sseg.v
+set_global_assignment -name SYSTEMVERILOG_FILE counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE DE1_SOC_golden_top.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

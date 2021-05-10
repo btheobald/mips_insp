@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips_de1
-Sun May 09 16:07:08 2021
+Mon May 10 12:02:32 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -49,7 +49,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun May 09 16:07:08 2021       ;
+; Analysis & Synthesis Status     ; Successful - Mon May 10 12:02:32 2021       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; mips_de1                                    ;
 ; Top-level Entity Name           ; picoMIPS4test                               ;
@@ -178,10 +178,10 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                     ; Library ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------+---------+
+; ../affine/dalu.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine/dalu.sv                  ;         ;
 ; ../affine/rom.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine/rom.sv                   ;         ;
 ; ../affine/rf.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine/rf.sv                    ;         ;
 ; ../affine/pc.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine/pc.sv                    ;         ;
-; ../affine/ddralu.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine/ddralu.sv                ;         ;
 ; ../affine/core.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine/core.sv                  ;         ;
 ; ../affine/common.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine/common.sv                ;         ;
 ; sseg.v                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/Byron/Desktop/mips_insp/affine_de1/sseg.v               ;         ;
@@ -217,38 +217,37 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name   ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+---------------+--------------+
-; |picoMIPS4test             ; 100 (0)             ; 59 (0)                    ; 0                 ; 2          ; 67   ; 0            ; |picoMIPS4test                      ; picoMIPS4test ; work         ;
-;    |core:core0|            ; 45 (10)             ; 35 (1)                    ; 0                 ; 2          ; 0    ; 0            ; |picoMIPS4test|core:core0           ; core          ; work         ;
-;       |ddralu:a0|          ; 32 (32)             ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |picoMIPS4test|core:core0|ddralu:a0 ; ddralu        ; work         ;
-;       |pc:c0|              ; 2 (2)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|core:core0|pc:c0     ; pc            ; work         ;
-;       |rf:f0|              ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|core:core0|rf:f0     ; rf            ; work         ;
-;       |rom:r0|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|core:core0|rom:r0    ; rom           ; work         ;
-;    |counter:ctr|           ; 24 (24)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|counter:ctr          ; counter       ; work         ;
-;    |sseg:s0|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s0              ; sseg          ; work         ;
-;    |sseg:s1|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s1              ; sseg          ; work         ;
-;    |sseg:s2|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s2              ; sseg          ; work         ;
-;    |sseg:s3|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s3              ; sseg          ; work         ;
-;    |sseg:s4|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s4              ; sseg          ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+---------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name               ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+---------------+--------------+
+; |picoMIPS4test             ; 100 (0)             ; 59 (0)                    ; 0                 ; 2          ; 67   ; 0            ; |picoMIPS4test                    ; picoMIPS4test ; work         ;
+;    |core:core0|            ; 45 (10)             ; 35 (1)                    ; 0                 ; 2          ; 0    ; 0            ; |picoMIPS4test|core:core0         ; core          ; work         ;
+;       |dalu:a0|            ; 32 (32)             ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |picoMIPS4test|core:core0|dalu:a0 ; dalu          ; work         ;
+;       |pc:c0|              ; 2 (2)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|core:core0|pc:c0   ; pc            ; work         ;
+;       |rf:f0|              ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|core:core0|rf:f0   ; rf            ; work         ;
+;       |rom:r0|             ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|core:core0|rom:r0  ; rom           ; work         ;
+;    |counter:ctr|           ; 24 (24)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|counter:ctr        ; counter       ; work         ;
+;    |sseg:s0|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s0            ; sseg          ; work         ;
+;    |sseg:s1|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s1            ; sseg          ; work         ;
+;    |sseg:s2|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s2            ; sseg          ; work         ;
+;    |sseg:s3|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s3            ; sseg          ; work         ;
+;    |sseg:s4|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |picoMIPS4test|sseg:s4            ; sseg          ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary    ;
-+-----------------------------------+-------------+
-; Statistic                         ; Number Used ;
-+-----------------------------------+-------------+
-; Independent 9x9                   ; 2           ;
-; Total number of DSP blocks        ; 2           ;
-;                                   ;             ;
-; Fixed Point Signed Multiplier     ; 1           ;
-; Fixed Point Mixed Sign Multiplier ; 1           ;
-+-----------------------------------+-------------+
++----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary ;
++-------------------------------+--------------+
+; Statistic                     ; Number Used  ;
++-------------------------------+--------------+
+; Independent 9x9               ; 2            ;
+; Total number of DSP blocks    ; 2            ;
+;                               ;              ;
+; Fixed Point Signed Multiplier ; 2            ;
++-------------------------------+--------------+
 
 
 +------------------------------------------------------+
@@ -266,14 +265,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |picoMIPS4test|core:core0|ddralu:a0|mul2_a[1] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |picoMIPS4test|core:core0|ddralu:a0|mul1_a[2] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |picoMIPS4test|core:core0|dalu:a0|mul1_a[5] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
 +----------------------------------------------------------+
@@ -365,19 +363,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun May 09 16:06:58 2021
+    Info: Processing started: Mon May 10 12:02:15 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off affine_de1 -c mips_de1
 Info (16303): Aggressive Area optimization mode selected -- logic area will be prioritized at the potential cost of reduced timing performance
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/byron/desktop/mips_insp/affine/dalu.sv
+    Info (12023): Found entity 1: dalu File: C:/Users/Byron/Desktop/mips_insp/affine/dalu.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/byron/desktop/mips_insp/affine/rom.sv
     Info (12023): Found entity 1: rom File: C:/Users/Byron/Desktop/mips_insp/affine/rom.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/byron/desktop/mips_insp/affine/rf.sv
     Info (12023): Found entity 1: rf File: C:/Users/Byron/Desktop/mips_insp/affine/rf.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/byron/desktop/mips_insp/affine/pc.sv
     Info (12023): Found entity 1: pc File: C:/Users/Byron/Desktop/mips_insp/affine/pc.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/byron/desktop/mips_insp/affine/ddralu.sv
-    Info (12023): Found entity 1: ddralu File: C:/Users/Byron/Desktop/mips_insp/affine/ddralu.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/byron/desktop/mips_insp/affine/core.sv
     Info (12023): Found entity 1: core File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 1
 Info (12021): Found 1 design units, including 0 entities, in source file /users/byron/desktop/mips_insp/affine/common.sv
@@ -393,11 +391,15 @@ Warning (10034): Output port "LEDR[9..8]" at DE1_SOC_golden_top.v(5) has no driv
 Info (12128): Elaborating entity "counter" for hierarchy "counter:ctr" File: C:/Users/Byron/Desktop/mips_insp/affine_de1/DE1_SOC_golden_top.v Line: 21
 Warning (10230): Verilog HDL assignment warning at counter.sv(8): truncated value with size 32 to match size of target (24) File: C:/Users/Byron/Desktop/mips_insp/affine_de1/counter.sv Line: 8
 Info (12128): Elaborating entity "core" for hierarchy "core:core0" File: C:/Users/Byron/Desktop/mips_insp/affine_de1/DE1_SOC_golden_top.v Line: 23
-Warning (10230): Verilog HDL assignment warning at core.sv(10): truncated value with size 32 to match size of target (1) File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 10
-Info (12128): Elaborating entity "pc" for hierarchy "core:core0|pc:c0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 19
-Info (12128): Elaborating entity "rom" for hierarchy "core:core0|rom:r0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 28
-Info (12128): Elaborating entity "rf" for hierarchy "core:core0|rf:f0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 43
-Info (12128): Elaborating entity "ddralu" for hierarchy "core:core0|ddralu:a0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 45
+Warning (10230): Verilog HDL assignment warning at core.sv(11): truncated value with size 32 to match size of target (1) File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 11
+Info (12128): Elaborating entity "pc" for hierarchy "core:core0|pc:c0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 20
+Info (12128): Elaborating entity "rom" for hierarchy "core:core0|rom:r0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 29
+Warning (10230): Verilog HDL assignment warning at rom.sv(9): truncated value with size 28 to match size of target (26) File: C:/Users/Byron/Desktop/mips_insp/affine/rom.sv Line: 9
+Warning (10230): Verilog HDL assignment warning at rom.sv(10): truncated value with size 28 to match size of target (26) File: C:/Users/Byron/Desktop/mips_insp/affine/rom.sv Line: 10
+Warning (10230): Verilog HDL assignment warning at rom.sv(11): truncated value with size 28 to match size of target (26) File: C:/Users/Byron/Desktop/mips_insp/affine/rom.sv Line: 11
+Warning (10230): Verilog HDL assignment warning at rom.sv(16): truncated value with size 28 to match size of target (26) File: C:/Users/Byron/Desktop/mips_insp/affine/rom.sv Line: 16
+Info (12128): Elaborating entity "rf" for hierarchy "core:core0|rf:f0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 44
+Info (12128): Elaborating entity "dalu" for hierarchy "core:core0|dalu:a0" File: C:/Users/Byron/Desktop/mips_insp/affine/core.sv Line: 46
 Info (12128): Elaborating entity "sseg" for hierarchy "sseg:s0" File: C:/Users/Byron/Desktop/mips_insp/affine_de1/DE1_SOC_golden_top.v Line: 27
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
@@ -425,10 +427,10 @@ Info (21057): Implemented 194 device resources after synthesis - the final resou
     Info (21059): Implemented 52 output pins
     Info (21061): Implemented 125 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 4833 megabytes
-    Info: Processing ended: Sun May 09 16:07:08 2021
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:20
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4832 megabytes
+    Info: Processing ended: Mon May 10 12:02:32 2021
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:36
 
 
